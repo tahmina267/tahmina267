@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tahmina Sultana | SQA Engineer & Project Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">&lt;TS/&gt;</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text mono">Loading portfolio...</p>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Decorative grid background -->
+  <div class="grid-bg"></div>
+
+  <!-- Floating decorative elements -->
+  <div class="deco-squares" aria-hidden="true">
+    <span class="sq sq-1"></span>
+    <span class="sq sq-2"></span>
+    <span class="sq sq-3"></span>
+    <span class="sq sq-4"></span>
+    <span class="sq sq-5"></span>
+    <span class="sq sq-6"></span>
+    <span class="sq sq-7"></span>
+    <span class="sq sq-8"></span>
+    <span class="sq sq-9"></span>
+    <span class="sq sq-10"></span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">&lt;TS/&gt;</span>
+        <span class="logo-text">Tahmina</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-hover>About</a>
+        <a href="#experience" data-hover>Experience</a>
+        <a href="#skills" data-hover>Skills</a>
+        <a href="#projects" data-hover>Projects</a>
+        <a href="#research" data-hover>Research</a>
+        <a href="#education" data-hover>Education</a>
+      </div>
+      <a href="#contact" class="nav-cta" data-magnetic>Get In Touch <span>&rarr;</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="mobile-cta">Get In Touch &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tag-wrap">
+          <span class="hero-tag-line"></span>
+          <p class="hero-tag mono" id="typewriter"></p>
+        </div>
+        <h1 class="hero-title">
+          <span class="reveal-wrap"><span class="reveal-text" data-reveal>Tahmina</span></span><br>
+          <span class="reveal-wrap"><span class="reveal-text hero-title-accent" data-reveal data-delay="200">Sultana</span></span>
+        </h1>
+        <p class="hero-desc" data-fade-up>
+          Quality-driven engineer crafting reliable software through
+          meticulous testing, agile delivery, and cross-functional collaboration.
+          Building products that ship with confidence.
+        </p>
+        <div class="hero-actions" data-fade-up data-delay="300">
+          <a href="#projects" class="btn btn-primary" data-magnetic>
+            <span class="btn-text">View My Work</span>
+            <span class="btn-arrow">&rarr;</span>
+            <span class="btn-glow"></span>
+          </a>
+          <a href="#contact" class="btn btn-outline" data-magnetic>
+            <span class="btn-text">Contact Me</span>
+          </a>
+        </div>
+        <div class="hero-note-wrap" data-fade-up data-delay="500">
+          <span class="pulse-dot"></span>
+          <p class="hero-note mono">currently @ Makebell Limited</p>
+        </div>
+      </div>
+      <div class="hero-right" data-fade-up data-delay="200">
+        <div class="hero-visual">
+          <canvas id="networkCanvas"></canvas>
+          <div class="hero-orb"></div>
+        </div>
+        <div class="hero-stat-cards">
+          <div class="stat-card" data-tilt>
+            <span class="stat-num" data-count="4" data-suffix="+">0</span>
+            <span class="stat-label">Law Firms<br>Delivered</span>
+          </div>
+          <div class="stat-card" data-tilt>
+            <span class="stat-num" data-count="84" data-suffix="%">0</span>
+            <span class="stat-label">BERT Model<br>Accuracy</span>
+          </div>
+          <div class="stat-card" data-tilt>
+            <span class="stat-num" data-count="6" data-suffix="+">0</span>
+            <span class="stat-label">Projects<br>Shipped</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" data-fade-up data-delay="800">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span class="mono">scroll down</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="section-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="var(--cream-light)" opacity=".3"/>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="var(--cream-light)" opacity=".5"/>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="var(--cream-light)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-label mono" data-fade-up>[ ABOUT ME ]</div>
+      <div class="about-grid">
+        <div class="about-left" data-fade-right>
+          <h2 class="section-title">Quality is not<br>an act, it's a<br><span class="accent">habit.</span></h2>
+          <div class="about-quote">
+            <span class="quote-mark">"</span>
+          </div>
+        </div>
+        <div class="about-right" data-fade-left>
+          <p>I'm a Computer Science graduate from North South University with a passion for ensuring software quality at every stage of the development lifecycle. With hands-on experience in manual and API testing, performance evaluation, and agile project coordination, I bridge the gap between development and delivery.</p>
+          <p>My journey spans from AI data management at SuperAnnotate to owning quality for a legal tech platform serving Hong Kong's largest law firms. I thrive in cross-functional environments where clear communication and systematic thinking drive better products.</p>
+          <div class="about-highlights">
+            <div class="highlight-item" data-tilt>
+              <div class="highlight-icon"><i class="fas fa-vial"></i></div>
+              <div>
+                <strong>Quality Assurance</strong>
+                <span>End-to-end testing strategies</span>
+              </div>
+              <div class="highlight-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="highlight-item" data-tilt>
+              <div class="highlight-icon highlight-icon--gold"><i class="fas fa-project-diagram"></i></div>
+              <div>
+                <strong>Project Management</strong>
+                <span>Agile delivery & coordination</span>
+              </div>
+              <div class="highlight-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="highlight-item" data-tilt>
+              <div class="highlight-icon highlight-icon--brick"><i class="fas fa-brain"></i></div>
+              <div>
+                <strong>AI & Research</strong>
+                <span>ML pipelines & data systems</span>
+              </div>
+              <div class="highlight-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-label mono" data-fade-up>[ EXPERIENCE ]</div>
+      <h2 class="section-title" data-fade-up>Where I've<br><span class="accent">worked.</span></h2>
+
+      <div class="timeline">
+        <div class="timeline-item" data-fade-up>
+          <div class="timeline-marker">
+            <div class="timeline-dot">
+              <div class="timeline-pulse"></div>
+            </div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content" data-tilt>
+            <div class="timeline-header">
+              <div>
+                <h3>SQA Engineer & Project Manager</h3>
+                <p class="company">Makebell Limited</p>
+              </div>
+              <div class="timeline-meta">
+                <span class="badge badge--active"><span class="badge-dot"></span>Active</span>
+                <span class="mono date">Aug 2024 &mdash; Present</span>
+              </div>
+            </div>
+            <div class="timeline-body">
+              <ul>
+                <li>Owned quality for a Legal Tech web platform across multiple releases; translated requirements into clear <strong>test plans</strong>, <strong>test cases</strong>, and acceptance criteria. Delivered product to <strong>four of Hong Kong's largest law firms.</strong></li>
+                <li>Coordinated Agile delivery using <strong>Linear</strong> and <strong>Notion</strong>; ensured transparent defect tracking, risk reporting, and release readiness.</li>
+                <li>Performed thorough <strong>manual testing</strong> (Smoke, Regression, Exploratory, UAT) and maintained structured QA checklists.</li>
+                <li>Executed API testing using <strong>Postman/Bruno</strong>; validated requests/responses and edge cases with reproducible payloads.</li>
+                <li>Conducted performance checks using <strong>JMeter</strong> for load and endurance scenarios.</li>
+                <li>Worked daily with <strong>GitHub</strong> and <strong>Linux</strong> environments for test execution and debugging.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span>Test Planning</span><span>Postman</span><span>JMeter</span><span>Linear</span><span>GitHub</span><span>Linux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-fade-up>
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content" data-tilt>
+            <div class="timeline-header">
+              <div>
+                <h3>Project Coordinator & AI Data Manager</h3>
+                <p class="company">SuperAnnotate AI</p>
+              </div>
+              <div class="timeline-meta">
+                <span class="badge">Remote</span>
+                <span class="mono date">Jan 2024 &mdash; Aug 2024</span>
+              </div>
+            </div>
+            <div class="timeline-body">
+              <ul>
+                <li>Conducted quality checks on large-scale annotated datasets; ensured consistency with labeling guidelines and verified data integrity.</li>
+                <li>Collaborated with technical teams and annotators to resolve edge cases; improved review throughput.</li>
+                <li>Tracked milestones and quality metrics in <strong>Excel</strong> and <strong>Jira</strong>; ensured on-time delivery.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span>Data Quality</span><span>Jira</span><span>Excel</span><span>AI/ML</span><span>Documentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills" id="skills">
+    <div class="section-divider section-divider--flip">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="var(--cream-light)" opacity=".3"/>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="var(--cream-light)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-label mono" data-fade-up>[ TECHNICAL SKILLS ]</div>
+      <h2 class="section-title" data-fade-up>Tools &<br><span class="accent">technologies.</span></h2>
+
+      <div class="skills-grid">
+        <div class="skill-category" data-fade-up data-tilt>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-clipboard-check"></i></div>
+            <h3>QA & Testing</h3>
+          </div>
+          <div class="skill-pills">
+            <span>Smoke Testing</span><span>Regression Testing</span><span>Exploratory Testing</span><span>UAT</span><span>E2E Testing</span><span>Test Documentation</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-fade-up data-tilt>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon--gold"><i class="fas fa-tasks"></i></div>
+            <h3>Project Management</h3>
+          </div>
+          <div class="skill-pills">
+            <span>Agile/Scrum</span><span>SDLC</span><span>STLC</span><span>Linear</span><span>Trello</span><span>Notion</span><span>Git</span><span>GitHub</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-fade-up data-tilt>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon--brick"><i class="fas fa-tachometer-alt"></i></div>
+            <h3>Performance & API</h3>
+          </div>
+          <div class="skill-pills">
+            <span>JMeter</span><span>Postman</span><span>Bruno</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-fade-up data-tilt>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon--purple"><i class="fas fa-code"></i></div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <span>Python</span><span>SQL</span><span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-fade-up data-tilt>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon--pink"><i class="fas fa-database"></i></div>
+            <h3>Databases</h3>
+          </div>
+          <div class="skill-pills">
+            <span>PostgreSQL</span><span>Data Validation</span><span>Integrity Checks</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-fade-up data-tilt>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon--gold"><i class="fas fa-robot"></i></div>
+            <h3>AI/ML & GenAI</h3>
+          </div>
+          <div class="skill-pills">
+            <span>LangChain</span><span>Prompt Engineering</span><span>PyTorch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-label mono" data-fade-up>[ PROJECTS & SYSTEMS WORK ]</div>
+      <h2 class="section-title" data-fade-up>Things I've<br><span class="accent">built.</span></h2>
+
+      <div class="projects-grid">
+        <div class="project-card project-card--featured" data-fade-up>
+          <div class="project-card-glow"></div>
+          <div class="project-card-inner" data-tilt>
+            <div class="project-number mono">01</div>
+            <div class="project-icon-wrap"><i class="fas fa-search"></i></div>
+            <h3>RAG Document Agentic QA System</h3>
+            <p>End-to-end RAG pipeline: data ingestion &rarr; chunking &rarr; embedding &rarr; retrieval &rarr; grounded answer generation using LangChain with Chroma.</p>
+            <div class="project-tech">
+              <span>LangChain</span><span>Chroma</span><span>Python</span><span>RAG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-fade-up>
+          <div class="project-card-inner" data-tilt>
+            <div class="project-number mono">02</div>
+            <div class="project-top-row">
+              <div class="project-icon-wrap project-icon-wrap--pink"><i class="fas fa-heartbeat"></i></div>
+              <a href="https://github.com/sararahman1729/Aethermind" target="_blank" class="project-link" aria-label="View on GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <h3>Aethermind &mdash; Mental Health Detection</h3>
+            <p>Survey ingestion &rarr; preprocessing &rarr; personalized feedback. Deployed via Docker Compose on DigitalOcean.</p>
+            <div class="project-tech">
+              <span>Flask</span><span>Pandas</span><span>PyTorch</span><span>Docker</span><span>DigitalOcean</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-fade-up>
+          <div class="project-card-inner" data-tilt>
+            <div class="project-number mono">03</div>
+            <div class="project-icon-wrap project-icon-wrap--gold"><i class="fas fa-broadcast-tower"></i></div>
+            <h3>Arduino Earthquake Detector</h3>
+            <p>Low-cost early warning prototype using ADXL335 accelerometer and Arduino; C++ firmware for real-time alerts.</p>
+            <div class="project-tech">
+              <span>Arduino</span><span>C++</span><span>ADXL335</span><span>Hardware</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-fade-up>
+          <div class="project-card-inner" data-tilt>
+            <div class="project-number mono">04</div>
+            <div class="project-top-row">
+              <div class="project-icon-wrap project-icon-wrap--brick"><i class="fas fa-microscope"></i></div>
+              <a href="https://github.com/CREVIOS/MediSinGAN" target="_blank" class="project-link" aria-label="View on GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <h3>MedisinGAN</h3>
+            <p>SinGAN for synthetic data generation across multi-modal MRI and histopathology patches in PyTorch.</p>
+            <div class="project-tech">
+              <span>PyTorch</span><span>SinGAN</span><span>Medical Imaging</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-fade-up>
+          <div class="project-card-inner" data-tilt>
+            <div class="project-number mono">05</div>
+            <div class="project-icon-wrap project-icon-wrap--purple"><i class="fas fa-chart-line"></i></div>
+            <h3>Streaming & Analytics Platform</h3>
+            <p>SQL-driven dashboards for engagement trends and performance reporting with PHP, MySQL, and JS.</p>
+            <div class="project-tech">
+              <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-fade-up>
+          <div class="project-card-inner" data-tilt>
+            <div class="project-number mono">06</div>
+            <div class="project-icon-wrap"><i class="fab fa-discord"></i></div>
+            <h3>Discord Health Chatbot</h3>
+            <p>Python-based chatbot using Discord API for health tips, symptom checks, and conversational support flows.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Discord API</span><span>NLP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section class="section research" id="research">
+    <div class="section-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="var(--cream)" opacity=".4"/>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="var(--cream)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-label mono" data-fade-up>[ ACADEMIC RESEARCH ]</div>
+      <h2 class="section-title" data-fade-up>Research &<br><span class="accent">exploration.</span></h2>
+
+      <div class="research-list">
+        <div class="research-item" data-fade-up data-tilt>
+          <div class="research-accent-bar"></div>
+          <div class="research-content">
+            <div class="research-meta"><span class="mono">Advisor: Dr. Sifat Momen</span></div>
+            <h3>Sentiment Analysis of Online Banking Apps (BERT)</h3>
+            <p>Processed ~87K labeled app reviews; fine-tuned BERT using PyTorch achieving <strong>84% classification accuracy</strong>. Implemented LIME explanations for interpretability.</p>
+            <div class="research-tags"><span>BERT</span><span>PyTorch</span><span>LIME</span><span>NLP</span></div>
+          </div>
+          <div class="research-highlight">
+            <span class="big-num" data-count="84" data-suffix="%">0</span>
+            <span class="big-label">accuracy</span>
+          </div>
+        </div>
+
+        <div class="research-item" data-fade-up data-tilt>
+          <div class="research-accent-bar"></div>
+          <div class="research-content">
+            <div class="research-meta"><span class="mono">Supervisor: Dr. Nabeel Mohammed</span></div>
+            <h3>Knowledge Distillation with Entropy-Penalized Loss</h3>
+            <p>Designed an entropy-penalized objective to improve generalization in student models; evaluated on CIFAR-100 and TinyImageNet.</p>
+            <div class="research-tags"><span>Knowledge Distillation</span><span>CIFAR-100</span><span>TinyImageNet</span></div>
+          </div>
+        </div>
+
+        <div class="research-item" data-fade-up data-tilt>
+          <div class="research-accent-bar"></div>
+          <div class="research-content">
+            <div class="research-meta"><span class="mono">Supervisor: Dr. Shahnewaz Siddique</span></div>
+            <h3>Learning-Guided Sampling-Based Motion Planning</h3>
+            <p>Improved RRT* path planning with a GMM-based intention predictor for UAV simulations. Raised path success rate from 60% &rarr; <strong>80%</strong>; reduced planning time to ~0.33s.</p>
+            <div class="research-tags"><span>RRT*</span><span>GMM</span><span>OMPL</span><span>PyBullet</span><span>UAV</span></div>
+          </div>
+          <div class="research-highlight">
+            <span class="big-num" data-count="80" data-suffix="%">0</span>
+            <span class="big-label">success rate</span>
+          </div>
+        </div>
+
+        <div class="research-item" data-fade-up data-tilt>
+          <div class="research-accent-bar"></div>
+          <div class="research-content">
+            <div class="research-meta"><span class="mono">Supervisor: Dr. Mahdy Rahman Chowdhury</span></div>
+            <h3>Secure & Unbiased Quantum Energy Teleportation</h3>
+            <p>Simulated a QET+QOT protocol on Qiskit/IBM Quantum; integrated BB84 key exchange and HMAC-SHA256 authentication.</p>
+            <div class="research-tags"><span>Qiskit</span><span>IBM Quantum</span><span>BB84</span><span>Cryptography</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section education" id="education">
+    <div class="container">
+      <div class="section-label mono" data-fade-up>[ EDUCATION ]</div>
+      <h2 class="section-title" data-fade-up>Academic<br><span class="accent">background.</span></h2>
+
+      <div class="edu-card" data-fade-up data-tilt>
+        <div class="edu-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="edu-info">
+          <h3>North South University</h3>
+          <p class="edu-degree">B.Sc. in Computer Science and Engineering</p>
+          <div class="edu-details">
+            <span class="mono">2021 &mdash; 2025</span>
+            <span class="edu-divider">&bull;</span>
+            <span>Dhaka, Bangladesh</span>
+            <span class="edu-divider">&bull;</span>
+            <span class="edu-gpa">CGPA: 3.19 / 4.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-inner" data-fade-up>
+        <div class="contact-pattern"></div>
+        <div class="section-label mono">[ GET IN TOUCH ]</div>
+        <h2 class="section-title contact-title">Let's work<br><span class="accent">together.</span></h2>
+        <p class="contact-desc">I'm open to new opportunities in SQA, project management, and AI/ML roles. Feel free to reach out!</p>
+
+        <div class="contact-links">
+          <a href="mailto:tahminasultana2609@gmail.com" class="contact-card" data-magnetic>
+            <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span class="contact-card-label mono">Email</span>
+              <span class="contact-card-value">tahminasultana2609@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="tel:+8801750793849" class="contact-card" data-magnetic>
+            <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <span class="contact-card-label mono">Phone</span>
+              <span class="contact-card-value">+880 1750 793849</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/tahmina267" target="_blank" class="contact-card" data-magnetic>
+            <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <span class="contact-card-label mono">GitHub</span>
+              <span class="contact-card-value">tahmina267</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/tahmina-sultana-188051247/" target="_blank" class="contact-card" data-magnetic>
+            <div class="contact-card-icon"><i class="fab fa-linkedin"></i></div>
+            <div>
+              <span class="contact-card-label mono">LinkedIn</span>
+              <span class="contact-card-value">Tahmina Sultana</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="mono">&copy; 2025 Tahmina Sultana</span>
+        <div class="footer-socials">
+          <a href="https://github.com/tahmina267" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/tahmina-sultana-188051247/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:tahminasultana2609@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <span class="mono">Designed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="progress-ring" viewBox="0 0 48 48">
+      <circle class="progress-ring-bg" cx="24" cy="24" r="20"/>
+      <circle class="progress-ring-fill" cx="24" cy="24" r="20" id="progressRing"/>
+    </svg>
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
