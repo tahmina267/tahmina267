@@ -71,7 +71,7 @@ def sky(c, counts, x0, y0, w, h):
     stars, path = [], []
     for n in counts:
         x = x0 + 14 + rnd.random() * (w - 28)
-        y = y0 + 14 + rnd.random() * (h - 58)
+        y = y0 + 14 + rnd.random() * (h - 44)
         if (x - mx) ** 2 + (y - my) ** 2 < 30 ** 2:
             continue
         if n == 0:
@@ -93,7 +93,6 @@ def sky(c, counts, x0, y0, w, h):
         out.append(f'<path d="{d}" fill="none" stroke="{c["glow"]}" stroke-width="0.8" stroke-opacity="0.35" stroke-dasharray="2 3"/>')
     out += stars
     active = sum(1 for n in counts if n)
-    out.append(f'<text x="{x0 + 14}" y="{y0 + h - 34}" font-size="13px" fill="{c["star"]}" opacity="0.9" font-style="italic">dreaming in code and stardust ✦</text>')
     out.append(f'<text x="{x0 + 14}" y="{y0 + h - 15}" font-size="11px" fill="{c["glow"]}" opacity="0.6">your year in stars · {active} bright days</text>')
     return out
 
