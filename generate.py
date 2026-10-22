@@ -1,4 +1,4 @@
-"""Builds dark_mode.svg and light_mode.svg, the info card on the profile README.
+"""Builds card-dark.svg and card-light.svg, the info card on the profile README.
 
 Run locally with `python generate.py`. The GitHub Action in .github/workflows/build.yml runs it
 whenever this file changes.
@@ -73,7 +73,7 @@ def svg(theme):
 
 def main():
     for theme in THEMES:
-        (ROOT / f"{theme}_mode.svg").write_text(svg(theme))
+        (ROOT / f"card-{theme}.svg").write_text(svg(theme))
 
 
 if __name__ == "__main__":
