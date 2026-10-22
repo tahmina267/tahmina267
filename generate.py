@@ -1,4 +1,5 @@
-"""Builds dark_mode.svg and light_mode.svg, the neofetch-style card on the profile README.
+"""Builds dark_mode.svg and light_mode.svg, the profile card: a sky with one star per day of
+the last year (brighter on busier days), next to a neofetch-style info panel.
 
 Run locally with `python generate.py` (set GH_TOKEN for higher API limits).
 The GitHub Action in .github/workflows/build.yml runs it daily to refresh the stats.
@@ -17,9 +18,11 @@ WIDTH = 60  # characters in each info line
 
 THEMES = {
     "dark": dict(bg="#161b22", text="#c9d1d9", key="#ffa657", value="#a5d6ff",
-                 cc="#616e7f", art="#c9d1d9", add="#3fb950", border="#30363d"),
+                 cc="#616e7f", art="#c9d1d9", add="#3fb950", border="#30363d",
+                 sky="#0b1026", star="#e8eeff", glow="#9db4ff", moon="#f3ead7"),
     "light": dict(bg="#f6f8fa", text="#24292f", key="#953800", value="#0a3069",
-                  cc="#c2cfde", art="#24292f", add="#1a7f37", border="#d0d7de"),
+                  cc="#8c959f", art="#24292f", add="#1a7f37", border="#d0d7de",
+                 sky="#1b2350", star="#f4f6ff", glow="#b9c8ff", moon="#f7efdc"),
 }
 
 
@@ -46,6 +49,56 @@ def stats():
         followers=user["followers"],
         commits=commits,
     )
+
+
+def contributions():
+    """Daily contribution counts for the past year (GraphQL, needs a token)."""
+    q = {"query": 'query{user(login:"%s"){contributionsCollection{contributionCalendar{weeks{contributionDays{date contributionCount}}}}}}' % USER}
+    try:
+        weeks = api("graphql", q)["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+        return [d["contributionCount"] for w in weeks for d in w["contributionDays"]]
+    except Exception:
+        return [0] * 365
+
+
+def sky(c, counts, x0, y0, w, h):
+    """One star per day of the last year. Brighter for busier days; the busiest twinkle."""
+    import random
+    rnd = random.Random(267)  # fixed seed: each day keeps its place in the sky
+    top = max(counts) or 1
+    out = [f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="10" fill="{c["sky"]}"/>']
+    # crescent moon
+    mx, my = x0 + w - 52, y0 + 48
+    out.append(f'<circle cx="{mx}" cy="{my}" r="17" fill="{c["moon"]}"/>')
+    out.append(f'<circle cx="{mx + 7}" cy="{my - 5}" r="15" fill="{c["sky"]}"/>')
+    stars, path = [], []
+    for i, n in enumerate(counts):
+        x = x0 + 14 + rnd.random() * (w - 28)
+        y = y0 + 14 + rnd.random() * (h - 40)
+        if (x - mx) ** 2 + (y - my) ** 2 < 30 ** 2:
+            continue
+        if n:
+            path.append((x, y))
+        if n == 0:
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="0.7" fill="{c["star"]}" opacity="0.28"/>')
+            continue
+        t = n / top
+        r = 1.1 + 2.2 * t
+        if t > 0.45:  # bright day: a glow, a four-point sparkle, and a slow twinkle
+            dur = 2.5 + rnd.random() * 3
+            out.append(f'<g opacity="0.95"><animate attributeName="opacity" values="0.95;0.45;0.95" dur="{dur:.1f}s" repeatCount="indefinite"/>'
+                       f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r * 3:.1f}" fill="{c["glow"]}" opacity="0.18"/>'
+                       f'<path d="M{x:.1f} {y - r * 2.6:.1f}L{x + r * 0.45:.1f} {y:.1f}L{x:.1f} {y + r * 2.6:.1f}L{x - r * 0.45:.1f} {y:.1f}Z'
+                       f'M{x - r * 2.6:.1f} {y:.1f}L{x:.1f} {y + r * 0.45:.1f}L{x + r * 2.6:.1f} {y:.1f}L{x:.1f} {y - r * 0.45:.1f}Z" fill="{c["star"]}"/></g>')
+        else:
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="{c["star"]}" opacity="{0.55 + 0.45 * t:.2f}"/>')
+    # the active days, joined in date order: the year draws its own constellation
+    if len(path) > 1:
+        d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in path)
+        out.insert(3, f'<path d="{d}" fill="none" stroke="{c["glow"]}" stroke-width="0.8" stroke-opacity="0.35" stroke-dasharray="2 3"/>')
+    active = sum(1 for n in counts if n)
+    out.append(f'<text x="{x0 + 14}" y="{y0 + h - 14}" font-size="12px" fill="{c["cc"]}">your year in stars · {active} bright days</text>')
+    return out
 
 
 def uptime(today):
@@ -112,12 +165,12 @@ def stat_line(pairs):
     return spans
 
 
-def svg(theme, art, info):
+def svg(theme, info, counts):
     c = THEMES[theme]
     lh, fs, cw = 20, 16, 9.6  # line height, font size, approx char width
-    art_w = max(len(l) for l in art) * cw
-    x_info = 30 + art_w + 30
-    height = max(len(art), len(info)) * lh + 50
+    sky_w = 380
+    x_info = 30 + sky_w + 30
+    height = len(info) * lh + 50
     width = int(x_info + WIDTH * cw + 30)
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" font-family="ConsolasFallback,Consolas,\'Courier New\',monospace" '
@@ -129,11 +182,8 @@ def svg(theme, art, info):
         "text,tspan{white-space:pre;}",
         "</style>",
         f'<rect width="{width}px" height="{height}px" fill="{c["bg"]}" rx="15" stroke="{c["border"]}"/>',
-        f'<text x="30" y="40" fill="{c["art"]}" class="ascii">',
     ]
-    for i, l in enumerate(art):
-        out.append(f'<tspan x="30" y="{40 + i * lh}">{escape(l)}</tspan>')
-    out.append("</text>")
+    out += sky(c, counts, 24, 24, sky_w, height - 48)
     out.append(f'<text x="{x_info:.0f}" y="40" fill="{c["text"]}">')
     for i, spans in enumerate(info):
         y = 40 + i * lh
@@ -147,10 +197,10 @@ def svg(theme, art, info):
 
 
 def main():
-    art = (ROOT / "ascii.txt").read_text().rstrip("\n").split("\n")
     info = lines(stats(), datetime.date.today())
+    counts = contributions()
     for theme in THEMES:
-        (ROOT / f"{theme}_mode.svg").write_text(svg(theme, art, info))
+        (ROOT / f"{theme}_mode.svg").write_text(svg(theme, info, counts))
 
 
 if __name__ == "__main__":
