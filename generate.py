@@ -1,4 +1,4 @@
-"""Builds profile-dark.svg and profile-light.svg, the profile card: a sky with one star per day of the
+"""Builds sky-dark.svg and sky-light.svg, the profile card: a sky with one star per day of the
 last year (brighter on busier days, joined into a constellation) next to a clean info panel.
 
 Run locally with `GH_TOKEN=... python generate.py`. The GitHub Action in .github/workflows/build.yml
@@ -134,7 +134,7 @@ def svg(theme, counts):
 def main():
     counts = contributions()
     for theme in THEMES:
-        (ROOT / f"profile-{theme}.svg").write_text(svg(theme, counts))
+        (ROOT / f"sky-{theme}.svg").write_text(svg(theme, counts))
 
 
 if __name__ == "__main__":

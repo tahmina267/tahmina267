@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="profile-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="profile-light.svg">
-  <img alt="Tahmina Sultana" src="profile-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="sky-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="sky-light.svg">
+  <img alt="Tahmina Sultana" src="sky-dark.svg" width="100%">
 </picture>
 
 <p align="center">
