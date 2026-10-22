@@ -17,7 +17,6 @@ THEMES = {
 CARD = [
     "tahmina@sultana",
     ("OS", "macOS, Linux, Windows"),
-    ("Host", "Makebell Limited"),
     ("Role", "SQA Engineer & Project Manager"),
     ("IDE", "VS Code, Claude Code, Figma"),
     None,
