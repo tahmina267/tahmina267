@@ -358,6 +358,7 @@
 <circle cx="256.3" cy="430.4" r="0.7" fill="#f4f6ff" opacity="0.28"/>
 <circle cx="160.6" cy="267.6" r="0.7" fill="#f4f6ff" opacity="0.28"/>
 <circle cx="162.5" cy="224.1" r="0.7" fill="#f4f6ff" opacity="0.28"/>
+<circle cx="209.0" cy="382.5" r="0.7" fill="#f4f6ff" opacity="0.28"/>
 <text x="36" y="463" font-size="11px" fill="#b9c8ff" opacity="0.6">your year in stars · 9 bright days</text>
 <text x="364" y="46" fill="#1f2328" font-weight="700">tahmina@sultana</text>
 <line x1="520" y1="41" x2="988" y2="41" stroke="#d0d7de" stroke-dasharray="4 4"/>
