@@ -355,6 +355,7 @@
 <g><animate attributeName="opacity" values="1;0.45;1" dur="4.6s" repeatCount="indefinite"/><circle cx="80.1" cy="346.0" r="7.2" fill="#b9c8ff" opacity="0.18"/><path d="M80.1 339.7L81.2 346.0L80.1 352.2L79.0 346.0ZM73.8 346.0L80.1 347.0L86.3 346.0L80.1 344.9Z" fill="#f4f6ff"/></g>
 <circle cx="278.5" cy="369.7" r="0.7" fill="#f4f6ff" opacity="0.28"/>
 <circle cx="296.4" cy="224.7" r="0.7" fill="#f4f6ff" opacity="0.28"/>
+<circle cx="188.9" cy="227.6" r="0.7" fill="#f4f6ff" opacity="0.28"/>
 <text x="36" y="463" font-size="11px" fill="#b9c8ff" opacity="0.6">your year in stars · 12 bright days</text>
 <text x="364" y="46" fill="#1f2328" font-weight="700">tahmina@sultana</text>
 <line x1="520" y1="41" x2="988" y2="41" stroke="#d0d7de" stroke-dasharray="4 4"/>
